@@ -1,7 +1,22 @@
+# LiteLLM 代理服务依赖包列表
+
+# LiteLLM 核心包，包含代理服务功能
 litellm[proxy]>=1.16.0
+
+# 用于处理环境变量的包
 python-dotenv>=0.21.0
+
+# 用于处理 YAML 配置文件的包
 pyyaml>=6.0.1
+
+# 快速构建 API 服务的框架
 fastapi>=0.104.1
+
+# ASGI 服务器，用于运行 FastAPI 应用
 uvicorn>=0.24.0
+
+# 用于处理 JWT 验证的包
 python-jose>=3.3.0
+
+# 用于处理重试逻辑的包
 backoff>=2.2.1

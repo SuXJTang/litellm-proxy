@@ -1,14 +1,31 @@
-model_list:
-  - model_name: gpt-3.5-turbo
-    litellm_params:
-      model: gpt-3.5-turbo
-      api_base: https://api.github.com/
-      api_key: ${GITHUB_TOKEN}
+# LiteLLM 代理服务配置文件
+# 详细文档：https://docs.litellm.ai/docs/proxy/configs
 
+# 环境变量配置
+# 使用环境变量而不是硬编码值，提高安全性
+environment_variables:
+  # GitHub API Token，用于访问 GitHub Copilot API
+  # 通过 Docker 的 -e 参数传入
+  GITHUB_TOKEN: ${GITHUB_TOKEN}
+
+# 模型配置
+model_list:
+  - model_name: gpt-3.5-turbo  # 模型别名，用户调用时使用这个名称
+    litellm_params:  # LiteLLM 特定参数
+      model: gpt-3.5-turbo  # 实际使用的模型
+      api_base: https://api.github.com/
+      api_key: ${GITHUB_TOKEN}  # API 密钥
+
+# 常规配置
 litellm_settings:
+  # 是否丢弃请求参数
   drop_params: True
+  # 是否设置详细日志
   set_verbose: True
 
+# 服务配置
 server_settings:
+  # 服务主机
   host: 0.0.0.0
+  # 服务端口
   port: 8000
