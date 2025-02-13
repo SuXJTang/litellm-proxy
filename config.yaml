@@ -1,0 +1,14 @@
+model_list:
+  - model_name: gpt-3.5-turbo
+    litellm_params:
+      model: gpt-3.5-turbo
+      api_base: https://api.github.com/
+      api_key: ${GITHUB_TOKEN}
+
+litellm_settings:
+  drop_params: True
+  set_verbose: True
+
+server_settings:
+  host: 0.0.0.0
+  port: 8000
